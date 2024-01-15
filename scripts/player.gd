@@ -12,7 +12,7 @@ var viewport_size
 func _ready() -> void:
 	viewport_size = get_viewport_rect().size
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# checks if player is moving upward
 	if velocity.y < 0:
 		if animation_player.current_animation != "jump":
@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		if animation_player.current_animation != "fall":
 			animation_player.play("fall")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction = Input.get_axis("move_left", "move_right")
 	var margin = 20
 	
