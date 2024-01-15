@@ -50,7 +50,7 @@ func generate_level(y_start: float, generate_ground: bool):
 	for i in range(level_size):
 		var max_x = viewport_size.x - platform_width
 		var random_x = randf_range(0, max_x)
-		var location: Vector2 = Vector2(0, 0)
+		var location: Vector2 = Vector2.ZERO
 		
 		location.x = random_x
 		location.y = y_start - (y_between_platforms * i)

@@ -3,6 +3,7 @@ extends Camera2D
 @onready var destroyer: Area2D = $destroyer
 @onready var destroyer_shape: CollisionShape2D = $destroyer/destroyer_shape
 
+
 var player: Player = null
 var viewport_size
 
@@ -25,14 +26,13 @@ func _process(_delta: float) -> void:
 	var overlapping_areas = destroyer.get_overlapping_areas()
 	
 	if player:
-		if limit_bottom > int(player.global_position.y + limit_distance):
+		if limit_bottom > player.global_position.y + limit_distance:
 			limit_bottom = int(player.global_position.y + limit_distance)
 	
 	if overlapping_areas.size() > 0:
 		for area in overlapping_areas:
 			if area is Platform:
 				area.queue_free()
-				print("Deleting" + area.name)
 
 func _physics_process(_delta: float) -> void:
 	if player:
